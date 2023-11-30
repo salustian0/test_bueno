@@ -6,3 +6,41 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+
+.loading{
+    z-index: 99999;
+    position: absolute;
+    left: 0;
+    top:0;
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notification-container{
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    pointer-events:  none;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    background-color: transparent;
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    padding: 48px 16px 16px 16px;
+    align-items: flex-end;
+}
+
+
+.notification{
+    max-width: 300px;
+}

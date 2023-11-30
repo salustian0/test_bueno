@@ -19,6 +19,14 @@
 
 </head>
 <body>
+
+<div class="notification-container"></div>
+
+<div class="loading">
+    <div class="spinner-border text-danger" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -42,12 +50,6 @@
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
@@ -74,10 +76,37 @@
             </div>
         </nav>
 
+        <div class="p-2">
+            @stack('breadcrumb')
+        </div>
+
+        <button  class="btn btn-primary d-none" id="btn-request-permission">Solicitar permissão</button>
+
         <main class="py-4">
             @yield('content')
         </main>
     </div>
+    <script>
+        window.url = "{{ url('/') }}";
+        window.currentUrl = "{{ request()->url() }}";
+        window.isAuth = false;
+
+        @guest
+
+        @else
+            window.isAuth = true;
+        @endguest
+
+        @if(isset($hasDeviceToken))
+            window.hasDeviceToken = "{{ $hasDeviceToken }}";
+        @endif
+
+    </script>
+
     <script src="{{ mix('js/app.js') }}"></script>
+    <script src="{{ mix('js/customNotification.js') }}"></script>
+    <script src="{{ mix('js/fcm.js') }}"></script>
+
+    @stack('scripts')
 </body>
 </html>
