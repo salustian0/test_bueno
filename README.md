@@ -41,7 +41,13 @@ Este projeto requer PHP 8.2 ou versão superior. Siga as instruções abaixo par
     php artisan serve
     ```
 
-7. Abra um novo terminal e execute o comando para compilar os assets:
+7. Abra um novo terminal e execute o comando para instalar as dependências do Node.js:
+
+    ```bash
+    npm install
+    ```
+
+8. Em seguida, execute o comando para compilar os assets:
 
     ```bash
     npm run dev
@@ -56,3 +62,4 @@ A aplicação estará disponível em [http://localhost:8000](http://localhost:80
 - Para experimentar as notificações em tempo real, faça login com um usuário em um navegador e, em seguida, faça login com outro usuário em um navegador diferente. Atualize os dados de um usuário no primeiro navegador para ver as notificações refletidas no segundo navegador.
 
 Lembre-se de ajustar as configurações conforme necessário para o seu ambiente específico.
+
