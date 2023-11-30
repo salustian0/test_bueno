@@ -63,3 +63,8 @@ A aplicação estará disponível em [http://localhost:8000](http://localhost:80
 
 Lembre-se de ajustar as configurações conforme necessário para o seu ambiente específico.
 
+
+### Logue-se utilizando as seguintes credenciais:
+
+#### Usuário: admin@admin.com
+#### Senha: admin@123
