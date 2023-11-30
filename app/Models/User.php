@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'device_token'
     ];
 
     /**
@@ -42,4 +43,25 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function device_tokens()
+    {
+        return $this->belongsToMany(DeviceToken::class);
+    }
+
+    public function hasRole($role)
+    {
+        return $this->roles()->where('role', $role)->exists();
+    }
+
+    public function hasDeviceToken($device_token)
+    {
+        return $this->device_tokens()->where('token', $device_token)->exists();
+    }
+
 }
